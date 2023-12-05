@@ -20,7 +20,7 @@ export default function Section(props: Props): JSX.Element {
 
   return (
     <section
-      className='h-screen w-screen flex justify-center items-center'
+      className='h-screen w-screen flex justify-center items-center px-6 md:px-10'
       style={{ opacity: opacity }}
     >
       {children}
