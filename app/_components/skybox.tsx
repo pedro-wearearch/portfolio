@@ -1,12 +1,13 @@
 import { useThree } from '@react-three/fiber';
-import { CubeTextureLoader } from 'three';
+import { useCubeTexture } from '@react-three/drei';
 
 export default function SkyBox(): JSX.Element | null {
   const { scene } = useThree();
-  const loader = new CubeTextureLoader();
-  const sides = ['ft', 'bk', 'up', 'dn', 'rt', 'lf'];
-  const texture = loader.load(sides.map((side) => `/sky/corona_${side}.png`));
+  const envMap = useCubeTexture(
+    ['ft.png', 'bk.png', 'up.png', 'dn.png', 'rt.png', 'lf.png'],
+    { path: 'sky/' },
+  );
 
-  scene.background = texture;
+  scene.background = envMap;
   return null;
 }
